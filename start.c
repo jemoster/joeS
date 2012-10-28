@@ -8,8 +8,6 @@ extern uint32_t _sbss;
 extern uint32_t _ebss;
 
 void c_start(void) {
-	//uint32_t* start_data = &_srodata
-	//uint32_t* end_data = &_erodata
 	uint32_t* start_data = &_sdata;
 	uint32_t* end_data = &_edata;
 	uint32_t* data = &_sidata;
