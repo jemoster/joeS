@@ -1,5 +1,6 @@
 #include "registers.h"
 #include "start.h"
+#include "clock.h"
 
 extern uint32_t _sdata;
 extern uint32_t _edata;
@@ -25,6 +26,7 @@ void c_start(void) {
 
 void reset(void) {
 	c_start();
+    clocks();
 	main();
 	while(1){}
 }
