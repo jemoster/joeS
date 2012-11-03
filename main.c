@@ -1,6 +1,7 @@
 #include "start.h"
 #include "registers.h"
 #include "mem.h"
+#include "gpio.h"
 
 void main(void);
 
@@ -18,11 +19,23 @@ uint32_t *memPtr;
 void main(void) {
 	anotherInt = 2;
     
-    memPtr = getMem(4);
-    memPtr = getMem(4);
-    memPtr = getMem(4);
+    init_gpio_d();
+    //Test LEDs by turning them all on
+    LED_ODR |= (1<<LD3);
+    LED_ODR |= (1<<LD4);
+    LED_ODR |= (1<<LD5);
+    LED_ODR |= (1<<LD6);
     
+    
+    memPtr = getMem(4);
+    memPtr = getMem(4);
+    memPtr = getMem(4);
+        
 	while(1){
-		asm volatile("nop");
+        uint32_t i;
+        for(i=1e7;i>1;i--){
+            asm volatile("nop");
+        }
+        LED_ODR ^= (1<<13);
 	}
 }
