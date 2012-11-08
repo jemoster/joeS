@@ -1,6 +1,7 @@
 #include "registers.h"
 #include "start.h"
 #include "clock.h"
+#include "gpio.h"
 
 extern uint32_t _sdata;
 extern uint32_t _edata;
@@ -29,4 +30,14 @@ void reset(void) {
     clocks();
 	main();
 	while(1){}
+}
+
+void hang(void) {
+    while(1){
+       asm volatile("nop");
+    }
+}
+void tick(void) {
+//    asm volatile("nop");
+        LED_ODR ^= (1<<LD3);
 }

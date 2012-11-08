@@ -1,5 +1,5 @@
 CFLAGS = -mcpu=cortex-m4 -mthumb -nostdlib -c -g3
-SOURCE= main.c start.c mem.c clock.c gpio.c
+SOURCE= main.c start.c mem.c clock.c gpio.c sys_tick.c
 
 make:
 	arm-none-eabi-gcc $(SOURCE) $(CFLAGS)

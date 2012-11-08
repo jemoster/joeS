@@ -1,4 +1,5 @@
 #include "registers.h"
+#include "gpio.h"
 
 #define GPIODEN 3
 
